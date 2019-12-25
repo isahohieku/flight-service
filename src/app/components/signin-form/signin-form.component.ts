@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
+import { UtilService } from 'src/app/services/util.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signin-form',
@@ -11,7 +14,9 @@ export class SigninFormComponent implements OnInit {
   signinForm: FormGroup;
   username: FormControl;
   password: FormControl;
-  constructor() { }
+  loginLoading: boolean;
+  errorMessage: string;
+  constructor(private auth: AuthService, private util: UtilService, private router: Router) { }
 
   ngOnInit() {
     this.createFormControls();
@@ -37,18 +42,21 @@ export class SigninFormComponent implements OnInit {
         password: this.password.value
       };
 
-      // this.auth.signIn(data)
-      //   .then((res: any) => {
-      //     if (res.status === 'success') {
-      //       this.util.setUserObject(res.data);
-      //       this.util.setToken(res.data.token);
-      //       this.auth.setLoginStatus(true);
-      //       this.router.navigateByUrl('/app');
-      //     }
-      //   })
-      //   .catch(e => {
-      //     console.log(e);
-      //   });
+      this.loginLoading = true;
+      this.errorMessage = '';
+
+      this.auth.postMethod(data)
+        .subscribe((res: any) => {
+          console.log(res);
+          this.loginLoading = false;
+
+          this.router.navigateByUrl('/app');
+        }, e => {
+          this.errorMessage = 'Wrong email or password';
+          this.loginLoading = false;
+
+          console.log(e);
+        });
 
     }
   }

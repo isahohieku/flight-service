@@ -17,13 +17,14 @@ export class AuthService {
     this.Header = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        TUROGAuth: 'Bearer aafe66ae-15fb-3e11-9afe-eae6a5d881a1'
+        covenworks: 'Bearer auth'
       })
     };
    }
 
 
-  postMethod(data, url) {
+  postMethod(data) {
+    const url = 'http://fakebackend.test';
     return this.http.post(`${url}`, data, this.Header).pipe(share());
   }
 

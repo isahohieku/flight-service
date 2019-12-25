@@ -44,8 +44,17 @@
           <div class="row">
             <div class="col d-flex justify-content-end">
               <button mat-raised-button class="border-0 d-line-block mx-auto text-white w-50 py-2 bg-primary">Login 
-                <app-loader class="d-inline"></app-loader>
-              </button>
+                <app-loader *ngIf="loginLoading" class="d-inline"></app-loader>
+              </button>              
+            </div>
+          </div>
+        </div>
+
+        <!-- Error message -->
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <p class="mt-5 text-secondary text-center" *ngIf="errorMessage">{{ errorMessage }}</p>
             </div>
           </div>
         </div>
