@@ -9,9 +9,7 @@ import { AuthInterceptor } from '../auth/auth-interceptor/http-interceptor';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @NgModule({
-  declarations: [
-    
-  ],
+  declarations: [],
   imports: [
     CommonModule,
     FormsModule,

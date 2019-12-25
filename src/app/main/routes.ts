@@ -3,5 +3,5 @@ import { Routes } from '@angular/router';
 import { AuthComponent } from '../auth/auth.component';
 
 export const routes: Routes = [
-    { path: '', component: AuthComponent, loadChildren: '../core/core.module#CoreModule' }
+    { path: '', component: AuthComponent, loadChildren: '../auth/auth.module#AuthModule' }
 ];
