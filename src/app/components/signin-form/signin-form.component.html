@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h4 class="text-capitalize mt-4">welcome back,</h4>
+      <p class="text-grey">Sign in to continue</p>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col">
+      <form [formGroup]="signinForm" (ngSubmit)="login()">
+        <!-- Email/Username -->
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <mat-form-field class="w-100">
+                <input matInput type="email" placeholder="Email" formControlName="email">
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <!-- Password -->
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <mat-form-field class="w-100">
+                <input matInput type="password" placeholder="Password" formControlName="password">
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <!-- Forgot Password -->
+        <div class="container">
+          <div class="row">
+            <div class="col d-flex justify-content-end">
+              <a class="text-grey mousePointer">Forgot password?</a>
+            </div>
+          </div>
+        </div>
+        <!-- Submit button -->
+        <div class="container mt-5">
+          <div class="row">
+            <div class="col d-flex justify-content-end">
+              <button mat-raised-button class="border-0 text-white w-100 py-3 bg-primary">Login</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

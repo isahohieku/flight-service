@@ -4,6 +4,12 @@
 // Bootstrap
 @import 'assets/scss/bootstrap.scss';
 
+// Fonts
+
+body {
+  font-family: 'Karla', 'Overpass', sans-serif;
+}
+
 .w-100 {
     width: 100% !important;
   }
@@ -172,4 +178,8 @@ a, a:active, a:focus, a:link {
 
 .mousePointer {
     cursor: pointer;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+  background-color: #59687b;
 }

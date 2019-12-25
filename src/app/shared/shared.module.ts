@@ -7,9 +7,12 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from '../auth/auth-interceptor/http-interceptor';
 
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { SigninFormComponent } from '../components/signin-form/signin-form.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    SigninFormComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -32,7 +35,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
     HttpClientModule,
     RouterModule,
     ...materials,
-
+    SigninFormComponent
   ]
 })
 export class SharedModule {

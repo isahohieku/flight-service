@@ -1,3 +1,32 @@
-<p>
-  signin works!
-</p>
+<div class="wrapper d-flex justify-content-center align-items-center">
+
+  <!-- mini wrapper -->
+  <div class="mini-wrapper h-75 w-75 d-flex">
+
+    <!-- left-pane -->
+    <div class="left-pane w-50 h-100 d-flex align-items-center justify-content-center">
+      <div class="w-100">
+        <!-- Favicon -->
+        <div class="d-flex justify-content-center">
+          <div>
+            <img src="assets/img/lion.png" class="d-inline-block mx-auto" alt="Lion head" width="50">
+          </div>
+        </div>
+
+        <!-- Header -->
+        <p class="text-center font-weight-lighter text-white text-large">Flight Services</p>
+
+        <!-- Bg rocket -->
+        <div class="rocket mt-5"></div>
+      </div>
+    </div>
+
+    <!-- right pane -->
+    <div class="right-pane w-50 h-100 d-flex align-items-center justify-content-center">
+      <div class="w-75">
+        <app-signin-form></app-signin-form>
+      </div>
+    </div>
+  </div>
+
+</div>

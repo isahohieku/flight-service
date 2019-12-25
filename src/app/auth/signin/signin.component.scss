@@ -1,0 +1,36 @@
+.left-pane {
+    background-color: #4fc1b7;
+}
+
+.right-pane {
+    background: linear-gradient(to bottom, #394c63, #212d3e);
+}
+
+.wrapper {
+    height: 100vh;
+    background-color: #d36e7f;
+}
+
+.mini-wrapper {
+    border-radius: 10px;
+    overflow: hidden;
+    -webkit-box-shadow: 1px 18px 50px -17px rgba(0,0,0,0.63);
+    -moz-box-shadow: 1px 18px 50px -17px rgba(0,0,0,0.63);
+    box-shadow: 1px 18px 50px -17px rgba(0,0,0,0.63);;
+}
+
+.text-large {
+    font-size: large;
+}
+
+.rocket {
+    background-image: url('../../../assets/img/startup.png');
+    background-size: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 300px;
+}
+
+.font-weight-lighter {
+    font-weight: 100 !important;
+}
