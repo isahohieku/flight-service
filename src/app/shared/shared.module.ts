@@ -8,10 +8,12 @@ import { AuthInterceptor } from '../auth/auth-interceptor/http-interceptor';
 
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { SigninFormComponent } from '../components/signin-form/signin-form.component';
+import { LoaderComponent } from '../components/loader/loader.component';
 
 @NgModule({
   declarations: [
-    SigninFormComponent
+    SigninFormComponent,
+    LoaderComponent,
   ],
   imports: [
     CommonModule,
@@ -25,7 +27,7 @@ import { SigninFormComponent } from '../components/signin-form/signin-form.compo
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: MAT_DIALOG_DATA, useValue: {} },
-     { provide: MatDialogRef, useValue: {} }
+    { provide: MatDialogRef, useValue: {} }
   ],
   exports: [
     // Modules
@@ -35,7 +37,10 @@ import { SigninFormComponent } from '../components/signin-form/signin-form.compo
     HttpClientModule,
     RouterModule,
     ...materials,
-    SigninFormComponent
+
+    // components
+    SigninFormComponent,
+    LoaderComponent,
   ]
 })
 export class SharedModule {

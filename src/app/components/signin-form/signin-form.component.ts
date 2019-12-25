@@ -9,7 +9,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class SigninFormComponent implements OnInit {
 
   signinForm: FormGroup;
-  email: FormControl;
+  username: FormControl;
   password: FormControl;
   constructor() { }
 
@@ -19,13 +19,13 @@ export class SigninFormComponent implements OnInit {
   }
 
   createFormControls() {
-    this.email = new FormControl('', [Validators.email, Validators.required]);
+    this.username = new FormControl('', [Validators.required]);
     this.password = new FormControl('', [Validators.required]);
   }
 
   createForm() {
     this.signinForm = new FormGroup({
-      email: this.email,
+      username: this.username,
       password: this.password
     });
   }
@@ -33,7 +33,7 @@ export class SigninFormComponent implements OnInit {
   login() {
     if (this.signinForm.valid) {
       const data = {
-        email: this.email.value,
+        username: this.username.value,
         password: this.password.value
       };
 

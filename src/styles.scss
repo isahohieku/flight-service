@@ -1,185 +1,215 @@
 /* You can add global styles to this file, and also import other style files */
-@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import "@angular/material/prebuilt-themes/deeppurple-amber.css";
 
 // Bootstrap
-@import 'assets/scss/bootstrap.scss';
+@import "assets/scss/bootstrap.scss";
 
 // Fonts
 
 body {
-  font-family: 'Karla', 'Overpass', sans-serif;
+  font-family: "Karla", "Overpass", sans-serif;
 }
 
 .w-100 {
+  width: 100% !important;
+}
+.w-90 {
+  width: 90% !important;
+}
+.w-80 {
+  width: 80% !important;
+}
+.w-75 {
+  width: 75% !important;
+}
+.w-70 {
+  width: 70% !important;
+}
+.w-60 {
+  width: 60% !important;
+}
+.w-50 {
+  width: 50% !important;
+}
+.w-40 {
+  width: 40% !important;
+}
+.w-25 {
+  width: 25% !important;
+}
+.w-20 {
+  width: 20% !important;
+}
+
+@media (min-width: 576px) {
+  .w-sm-100 {
     width: 100% !important;
   }
-  .w-90 {
-    width: 90% !important;
-  }
-  .w-80 {
+  .w-sm-80 {
     width: 80% !important;
   }
-  .w-75 {
+  .w-sm-75 {
     width: 75% !important;
   }
-  .w-70 {
-    width: 70% !important;
-  }
-  .w-60 {
+  .w-sm-60 {
     width: 60% !important;
   }
-  .w-50 {
+  .w-sm-50 {
     width: 50% !important;
   }
-  .w-40 {
+  .w-sm-40 {
     width: 40% !important;
   }
-  .w-25 {
+  .w-sm-25 {
     width: 25% !important;
   }
-  .w-20 {
+  .w-sm-20 {
     width: 20% !important;
   }
-  
-  @media (min-width: 576px) {
-    .w-sm-100 {
-      width: 100% !important;
-    }
-    .w-sm-80 {
-      width: 80% !important;
-    }
-    .w-sm-75 {
-      width: 75% !important;
-    }
-    .w-sm-60 {
-      width: 60% !important;
-    }
-    .w-sm-50 {
-      width: 50% !important;
-    }
-    .w-sm-40 {
-      width: 40% !important;
-    }
-    .w-sm-25 {
-      width: 25% !important;
-    }
-    .w-sm-20 {
-      width: 20% !important;
-    }
+}
+
+@media (min-width: 768px) {
+  .w-md-100 {
+    width: 100% !important;
   }
-  
-  @media (min-width: 768px) {
-    .w-md-100 {
-      width: 100% !important;
-    }
-    .w-md-80 {
-      width: 80% !important;
-    }
-    .w-md-75 {
-      width: 75% !important;
-    }
-    .w-md-60 {
-      width: 60% !important;
-    }
-    .w-md-50 {
-      width: 50% !important;
-    }
-    .w-md-40 {
-      width: 40% !important;
-    }
-    .w-md-25 {
-      width: 25% !important;
-    }
-    .w-md-20 {
-      width: 20% !important;
-    }
+  .w-md-80 {
+    width: 80% !important;
   }
-  
-  @media (min-width: 992px) {
-    .w-lg-100 {
-      width: 100% !important;
-    }
-    .w-lg-80 {
-      width: 80% !important;
-    }
-    .w-lg-75 {
-      width: 75% !important;
-    }
-    .w-lg-60 {
-      width: 60% !important;
-    }
-    .w-lg-50 {
-      width: 50% !important;
-    }
-    .w-lg-40 {
-      width: 40% !important;
-    }
-    .w-lg-25 {
-      width: 25% !important;
-    }
-    .w-lg-20 {
-      width: 20% !important;
-    }
+  .w-md-75 {
+    width: 75% !important;
   }
-  
-  @media (min-width: 1200px) {
-    .w-xl-100 {
-      width: 100% !important;
-    }
-    .w-xl-80 {
-      width: 80% !important;
-    }
-    .w-xl-75 {
-      width: 75% !important;
-    }
-    .w-xl-60 {
-      width: 60% !important;
-    }
-    .w-xl-50 {
-      width: 50% !important;
-    }
-    .w-xl-40 {
-      width: 40% !important;
-    }
-    .w-xl-25 {
-      width: 25% !important;
-    }
-    .w-xl-20 {
-      width: 20% !important;
-    }
+  .w-md-60 {
+    width: 60% !important;
   }
+  .w-md-50 {
+    width: 50% !important;
+  }
+  .w-md-40 {
+    width: 40% !important;
+  }
+  .w-md-25 {
+    width: 25% !important;
+  }
+  .w-md-20 {
+    width: 20% !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .w-lg-100 {
+    width: 100% !important;
+  }
+  .w-lg-80 {
+    width: 80% !important;
+  }
+  .w-lg-75 {
+    width: 75% !important;
+  }
+  .w-lg-60 {
+    width: 60% !important;
+  }
+  .w-lg-50 {
+    width: 50% !important;
+  }
+  .w-lg-40 {
+    width: 40% !important;
+  }
+  .w-lg-25 {
+    width: 25% !important;
+  }
+  .w-lg-20 {
+    width: 20% !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .w-xl-100 {
+    width: 100% !important;
+  }
+  .w-xl-80 {
+    width: 80% !important;
+  }
+  .w-xl-75 {
+    width: 75% !important;
+  }
+  .w-xl-60 {
+    width: 60% !important;
+  }
+  .w-xl-50 {
+    width: 50% !important;
+  }
+  .w-xl-40 {
+    width: 40% !important;
+  }
+  .w-xl-25 {
+    width: 25% !important;
+  }
+  .w-xl-20 {
+    width: 20% !important;
+  }
+}
 
 .text- {
-    &primary {
-        color: #6747cd !important
-    }
-    &grey{
-        color: rgb(167, 167, 167) !important;
-    }
+  &primary {
+    color: #6747cd !important;
+  }
+  &grey {
+    color: rgb(167, 167, 167) !important;
+  }
 
-    &white{
-        color: white !important;
-    }
+  &white {
+    color: white !important;
+  }
 
-    &black{
-      color: rgb(46, 46, 46) !important;
+  &black {
+    color: rgb(46, 46, 46) !important;
   }
 }
 
 .bg {
-    &-primary {
-        background-color: #6747cd !important;
-    }
+  &-primary {
+    background-color: #6747cd !important;
+  }
 }
 
-a, a:active, a:focus, a:link {
+a,
+a:active,
+a:focus,
+a:link {
   text-decoration: none;
 }
 
 .mousePointer {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .mat-form-field-appearance-legacy .mat-form-field-underline {
   background-color: #59687b;
+}
+
+.mat-focused .mat-form-field-label,
+.mat-form-field-label {
+  color: #4fc1b7 !important;
+}
+
+.mat-form-field-ripple,
+.md-button,
+a.bg-primary:hover,
+a.bg-primary:focus,
+button.bg-primary:hover,
+button.bg-primary:focus {
+  background-color: #4fc1b7 !important;
+}
+
+[routerlink^="/"], [ng-reflect-router-link^="/"] {
+  outline: none !important;
+}
+
+input:focus, input:active, button:focus, button:active, select:focus, a:active, a:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 0rem !important;
+}
+
+.cdk-text-field-autofill-monitored:not(:-webkit-autofill) {
+  color: #a7a7a7;
 }
