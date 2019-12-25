@@ -7,15 +7,9 @@ import { Router } from '@angular/router';
 })
 export class UtilService {
 
-  baseUrl = 'https://api.turog.com.ng/cribchow-mp/';
-  private location: BehaviorSubject<any> = new BehaviorSubject<any>(null);
   private token: BehaviorSubject<any> = new BehaviorSubject<any>(null);
-  headerFooter: Subject<boolean> = new Subject<boolean>();
-  allLocations: Subject<any> = new Subject<any>();
-  userData: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
   constructor(private router: Router) {
-    this.headerFooter.next(false);
   }
 
   setUserObject(data) {
@@ -43,35 +37,4 @@ export class UtilService {
     return token;
   }
 
-  setLocation(data) {
-    this.location.next(data);
-  }
-
-  getLocation(): Observable<any> {
-    return this.location as Observable<any>;
-  }
-
-  setHeaderFooterStatus(value) {
-    this.headerFooter.next(value);
-  }
-
-  set setAllLocations(data) {
-    this.allLocations.next(data);
-  }
-
-  set setUserdata(data) {
-    this.userData.next(data);
-  }
-
-  getUserData(): Observable<any> {
-    return this.userData as Observable<any>;
-  }
-
-  gettAllLocations(): Observable<any> {
-    return this.allLocations as Observable<any>;
-  }
-
-  ListenToHeaderFooter(): Observable<boolean> {
-    return this.headerFooter as Observable<boolean>;
-  }
 }

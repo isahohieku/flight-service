@@ -9,7 +9,6 @@ import { share } from 'rxjs/operators';
 })
 export class CrudService {
 
-  private baseUrl = this.util.baseUrl;
   private header: { headers: HttpHeaders; };
 
   constructor(
@@ -23,25 +22,5 @@ export class CrudService {
 
   getResource(url) {
     return this.http.get(`${url}`, this.header).toPromise();
-  }
-
-  getAllMethod(url) {
-    return this.http.get(`${url}`, this.header).toPromise();
-  }
-
-  getAllMethodWithObservables(url): Observable<any> {
-    return this.http.get(`${url}`, this.header).pipe(share());
-  }
-
-  postAllMethod(url, data) {
-    return this.http.post(`${this.baseUrl}${url}`, data, this.header).toPromise();
-  }
-
-  postAllWithoutData(url) {
-    return this.http.post(`${this.baseUrl}${url}`, this.header).toPromise();
-  }
-
-  updateMethod(url, data) {
-    return this.http.put(`${this.baseUrl}${url}`, data, this.header).toPromise();
   }
 }

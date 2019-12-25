@@ -9,11 +9,13 @@ import { AuthInterceptor } from '../auth/auth-interceptor/http-interceptor';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { SigninFormComponent } from '../components/signin-form/signin-form.component';
 import { LoaderComponent } from '../components/loader/loader.component';
+import { AirportCardComponent } from '../components/airport-card/airport-card.component';
 
 @NgModule({
   declarations: [
     SigninFormComponent,
     LoaderComponent,
+    AirportCardComponent,
   ],
   imports: [
     CommonModule,
@@ -22,6 +24,7 @@ import { LoaderComponent } from '../components/loader/loader.component';
     HttpClientModule,
     RouterModule,
     ...materials,
+
 
   ],
   providers: [
@@ -38,9 +41,11 @@ import { LoaderComponent } from '../components/loader/loader.component';
     RouterModule,
     ...materials,
 
+
     // components
     SigninFormComponent,
     LoaderComponent,
+    AirportCardComponent,
   ]
 })
 export class SharedModule {

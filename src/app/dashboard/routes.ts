@@ -1,11 +1,11 @@
 import { Routes } from '@angular/router';
-import { AppComponent } from './app/app.component';
+import { MainAppComponent } from './main-app/main-app.component';
 
 
 const routes: Routes = [
     {
         path: '',
-        component: AppComponent
+        component: MainAppComponent
     },
 ];
 
