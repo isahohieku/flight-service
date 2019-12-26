@@ -49,6 +49,7 @@ export class SigninFormComponent implements OnInit {
         .subscribe((res: any) => {
           this.util.setToken(res.token);
           this.util.setUserObject(res.data);
+          this.auth.setLoginStatus(true);
           this.loginLoading = false;
 
           this.router.navigateByUrl('/app');

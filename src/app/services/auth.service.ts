@@ -26,6 +26,8 @@ export class AuthService {
     };
 
     if (!this.util.getUserObject()) {
+      this.setLoginStatus(false);
+    } else {
       this.setLoginStatus(true);
     }
    }
