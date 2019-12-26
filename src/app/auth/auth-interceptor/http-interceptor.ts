@@ -58,6 +58,11 @@ export class AuthInterceptor implements HttpInterceptor {
 
       const body = {
         message: 'successfully login',
+        data: {
+          admin: 'super-admin',
+          createAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString()
+        },
         token: 'abcdefghijklmnopqrstuvwxyz'
       };
 
