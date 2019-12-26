@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { debounceTime, switchMap, tap } from 'rxjs/operators';
 import * as moment from 'moment';
 import { CrudService } from 'src/app/services/crud.service';
 import { Subscription } from 'rxjs';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-grid-modal',
@@ -17,7 +18,7 @@ export class GridModalComponent implements OnInit {
   arrive: FormControl;
   flightForm: FormGroup;
 
-  constructor(private crud: CrudService) {
+  constructor(private crud: CrudService, @Inject(MAT_DIALOG_DATA) public data: any) {
     const duration = 60;
 
     for (let x = 1; x <= duration; x++) {
@@ -48,28 +49,17 @@ export class GridModalComponent implements OnInit {
   listenToChanges() {
     let currentTime;
     let timeElapse;
-    const url = 'https://opensky-network.org/api/flights/all?';
+    const url = 'https://opensky-network.org/api/flights/aircraft?';
     this.depart.valueChanges
       .pipe(
         tap(() => {
           currentTime = moment(); timeElapse = moment(currentTime).subtract(this.depart.value, 'm').unix();
-          this.getCities();
         }),
-        switchMap(value => this.crud.getResource(`${url}begin=${timeElapse}&end=${currentTime.unix()}`))
+        switchMap(value => this.crud.getResource(`${url}icao24=${this.data[0]}&begin=${timeElapse}&end=${currentTime.unix()}`))
       )
       .subscribe((res: any) => {
         console.log(res);
       }, e => console.log(e));
-  }
-
-  getCities() {
-    const url = 'https://opensky-network.org/api/states/all';
-
-    const request: Subscription = this.crud.getResource(url)
-      .subscribe(res => {
-        console.log(res);
-
-      }, e => console.log(e), () => request.unsubscribe());
   }
 
   search() {

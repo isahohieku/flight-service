@@ -199,6 +199,7 @@ a.bg-primary:focus,
 button.bg-primary:hover,
 button.bg-primary:focus {
   background-color: #4fc1b7 !important;
+  color: white !important;
 }
 
 [routerlink^="/"], [ng-reflect-router-link^="/"] {

@@ -1,12 +1,14 @@
-<mat-drawer-container class="example-container">
-    <!-- Side drawer -->
-    <mat-drawer mode="side" opened style="width: 300px; height: 100vh">
-        <app-sidenav></app-sidenav>
-    </mat-drawer>
-    <!-- Main Outlet -->
-    <mat-drawer-content style="height: 100vh;">
-        <app-header></app-header>
-        <app-main></app-main>
-        <app-footer class="mt-4 bg-white py-3"></app-footer>
-    </mat-drawer-content>
-</mat-drawer-container>
+<div >
+    <mat-drawer-container class="example-container" style="background: linear-gradient(to bottom, #394c63, #212d3e);">
+        <!-- Side drawer -->
+        <mat-drawer mode="side" class="box-shadow" opened style="width: 300px; height: 100vh; background-color: #212d3e;">
+            <app-sidenav></app-sidenav>
+        </mat-drawer>
+        <!-- Main Outlet -->
+        <mat-drawer-content style="height: 100vh;">
+            <app-header style="height: 50px;"></app-header>
+            <app-main class="height-hack"></app-main>
+            <app-footer  style="height: 50px;"></app-footer>
+        </mat-drawer-content>
+    </mat-drawer-container>
+</div>
