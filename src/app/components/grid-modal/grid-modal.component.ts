@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { debounceTime, switchMap, tap } from 'rxjs/operators';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-grid-modal',
@@ -48,10 +49,14 @@ export class GridModalComponent implements OnInit {
 
   listenToChanges() {
     let currentTime;
+    let timeElapse;
     const url = 'https://opensky-network.org/api/flights/all?begin=1517227200&end=1517230800';
     this.depart.valueChanges
       .pipe(
-        tap(() => {currentTime = new Date().toISOString(); console.log(currentTime); }),
+        tap(() => {
+          currentTime = moment(); timeElapse = moment(currentTime).add(this.depart.value, 'm');
+          console.log(currentTime, timeElapse);
+        }),
         // switchMap(value => this.crud.getAllMethodWithObservables(`users/search?q=${this.username.value.toLowerCase()}`))
       )
       .subscribe((res: any) => {

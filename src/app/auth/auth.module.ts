@@ -6,7 +6,7 @@ import { SigninComponent } from './signin/signin.component';
 import { AuthComponent } from './auth.component';
 
 @NgModule({
-  declarations: [SigninComponent, AuthComponent],
+  declarations: [SigninComponent],
   imports: [
     SharedModule,
     RouterModule.forChild(routes)
