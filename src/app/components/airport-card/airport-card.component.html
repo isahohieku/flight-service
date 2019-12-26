@@ -1,14 +1,40 @@
-<mat-card (click)="openCreateModal()">
+<mat-card (click)="openCreateModal()" class="card">
   <mat-card-title>
     <div class="container">
       <div class="row">
         <div class="col px-0">
-          <small class="text-capitalize">icao24 {{ data[0] }}</small>
+          <small class="text-white"><span class="text-uppercase">icao24</span> - {{ data[0] }}</small>
+          <p style="font-size: small;">
+            <small class="text-capitalize text-primary">{{ data[2] }}</small>
+          </p>
         </div>
       </div>
     </div>
   </mat-card-title>
+
+  <!-- Body -->
+  <div class="container">
+    <div class="row">
+      <div class="col px-0">
+        <div>
+          <p style="color: e8c92a;" class="text-center"><img src="assets/img/aeroplane.svg" alt="Plane" class="d-inline-block w-60"></p>
+        </div>
+        <p class="mb-0">
+          <small class="text-white"><i>Longitude: <span class="text-primary">{{ data[5] }}</span></i></small>
+        </p>
+        <p>
+          <small class="text-white"><i>Latitude: <span class="text-primary">{{ data[6] }}</span></i></small>
+        </p>
+      </div>
+    </div>
+  </div>
+  <!-- Footer -->
   <mat-card-footer class="pb-3">
-    <small>{{ data[2] }}</small>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+        </div>
+      </div>
+    </div>
   </mat-card-footer>
 </mat-card>
