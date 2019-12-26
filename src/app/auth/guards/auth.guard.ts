@@ -1,7 +1,7 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
-import { UtilService } from '../../../services/util.service';
+import { UtilService } from '../../services/util.service';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Injectable({
@@ -28,7 +28,7 @@ export class AuthGuard implements CanActivate, OnDestroy {
 
     if (!this.loginStatus) {
       localStorage.clear();
-      return this.router.navigateByUrl('/admin');
+      return this.router.navigateByUrl('/');
     }
 
     return true;

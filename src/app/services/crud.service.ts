@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { UtilService } from './util.service';
-import { Observable } from 'rxjs';
+
 import { share } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,7 @@ export class CrudService {
     };
   }
 
-  getResource(url) {
-    return this.http.get(`${url}`, this.header).toPromise();
+  getResource(url): Observable<any> {
+    return this.http.get(`${url}`, this.header).pipe(share());
   }
 }

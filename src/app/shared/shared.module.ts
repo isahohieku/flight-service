@@ -10,12 +10,14 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { SigninFormComponent } from '../components/signin-form/signin-form.component';
 import { LoaderComponent } from '../components/loader/loader.component';
 import { AirportCardComponent } from '../components/airport-card/airport-card.component';
+import { GridModalComponent } from '../components/grid-modal/grid-modal.component';
 
 @NgModule({
   declarations: [
     SigninFormComponent,
     LoaderComponent,
     AirportCardComponent,
+    GridModalComponent
   ],
   imports: [
     CommonModule,
@@ -41,11 +43,13 @@ import { AirportCardComponent } from '../components/airport-card/airport-card.co
     RouterModule,
     ...materials,
 
-
     // components
     SigninFormComponent,
     LoaderComponent,
     AirportCardComponent,
+  ],
+  entryComponents: [
+    GridModalComponent
   ]
 })
 export class SharedModule {

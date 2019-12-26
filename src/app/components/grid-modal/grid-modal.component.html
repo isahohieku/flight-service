@@ -1,0 +1,49 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col">
+      <form [formGroup]="flightForm" (ngSubmit)="Search()">
+        <!-- Email/Username -->
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <mat-form-field>
+                <mat-label>Departing flight (in minutes)</mat-label>
+                <mat-select formControlName="depart">
+                  <mat-option *ngFor="let time of times" [value]="time">
+                    {{time}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <!-- Password -->
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <mat-form-field>
+                <mat-label>Departing flight (in minutes)</mat-label>
+                <mat-select formControlName="arrive">
+                  <mat-option *ngFor="let time of times" [value]="time">
+                    {{time}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <!-- Details -->
+        <div class="container mt-5">
+          <div class="row">
+            <div class="col d-flex justify-content-end">
+              <!-- Flight depating -->
+              <hr>
+              <p>Departing flights</p>
+
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
