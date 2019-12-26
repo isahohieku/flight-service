@@ -72,4 +72,8 @@ export class GridModalComponent implements OnInit {
       }, e => console.log(e), () => request.unsubscribe());
   }
 
+  search() {
+    
+  }
+
 }
