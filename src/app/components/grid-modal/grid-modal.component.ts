@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { debounceTime, switchMap, tap } from 'rxjs/operators';
 import * as moment from 'moment';
+import { CrudService } from 'src/app/services/crud.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-grid-modal',
@@ -15,7 +17,7 @@ export class GridModalComponent implements OnInit {
   arrive: FormControl;
   flightForm: FormGroup;
 
-  constructor() {
+  constructor(private crud: CrudService) {
     const duration = 60;
 
     for (let x = 1; x <= duration; x++) {
@@ -23,8 +25,6 @@ export class GridModalComponent implements OnInit {
         this.times.push(x);
       }
     }
-
-    console.log(this.times);
   }
 
   ngOnInit() {
@@ -43,25 +43,33 @@ export class GridModalComponent implements OnInit {
       depart: this.depart,
       arrive: this.arrive
     });
-
-    // new Date()
   }
 
   listenToChanges() {
     let currentTime;
     let timeElapse;
-    const url = 'https://opensky-network.org/api/flights/all?begin=1517227200&end=1517230800';
+    const url = 'https://opensky-network.org/api/flights/all?';
     this.depart.valueChanges
       .pipe(
         tap(() => {
-          currentTime = moment(); timeElapse = moment(currentTime).add(this.depart.value, 'm');
-          console.log(currentTime, timeElapse);
+          currentTime = moment(); timeElapse = moment(currentTime).subtract(this.depart.value, 'm').unix();
+          this.getCities();
         }),
-        // switchMap(value => this.crud.getAllMethodWithObservables(`users/search?q=${this.username.value.toLowerCase()}`))
+        switchMap(value => this.crud.getResource(`${url}begin=${timeElapse}&end=${currentTime.unix()}`))
       )
       .subscribe((res: any) => {
         console.log(res);
-      });
+      }, e => console.log(e));
+  }
+
+  getCities() {
+    const url = 'https://opensky-network.org/api/states/all';
+
+    const request: Subscription = this.crud.getResource(url)
+      .subscribe(res => {
+        console.log(res);
+
+      }, e => console.log(e), () => request.unsubscribe());
   }
 
 }
