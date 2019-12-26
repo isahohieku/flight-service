@@ -24,8 +24,8 @@ export class SigninFormComponent implements OnInit {
   }
 
   createFormControls() {
-    this.username = new FormControl([Validators.required]);
-    this.password = new FormControl([Validators.required]);
+    this.username = new FormControl('', [Validators.required]);
+    this.password = new FormControl('', [Validators.required]);
   }
 
   createForm() {
