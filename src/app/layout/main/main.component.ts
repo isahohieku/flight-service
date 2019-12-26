@@ -10,9 +10,8 @@ import { Subscription } from 'rxjs';
 })
 export class MainComponent implements OnInit {
 
-  cities = [
-
-  ];
+  cities = [];
+  loading = false;
   constructor(private crud: CrudService) { }
 
   ngOnInit() {
@@ -22,13 +21,15 @@ export class MainComponent implements OnInit {
   getCities() {
     const url = 'https://opensky-network.org/api/states/all';
 
+    this.loading = true;
     const request: Subscription = this.crud.getResource(url)
       .subscribe(res => {
-
         this.cities = res.states.slice(0, 10);
         console.log(this.cities);
+        this.loading = false;
 
-      }, e => console.log(e), () => request.unsubscribe());
+
+      }, e => { console.log(e); this.loading = false; }, () => request.unsubscribe());
   }
 
 }

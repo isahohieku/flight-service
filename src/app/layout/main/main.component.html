@@ -1,4 +1,4 @@
-<div class="container height-hack mt-5">
+<div class="container height-hack mt-5" *ngIf="!loading">
   <div class="row">
     <!-- <div class="col">
       <app-airport-card></app-airport-card>
@@ -6,5 +6,12 @@
     <div class="col-4 my-2" *ngFor="let item of cities">
       <app-airport-card [data]="item"></app-airport-card>
     </div>
+  </div>
+</div>
+
+<div class="height-hack d-flex justify-content-center align-items-center" *ngIf="loading">
+  <div class="spinner">
+    <div class="double-bounce1"></div>
+    <div class="double-bounce2"></div>
   </div>
 </div>
