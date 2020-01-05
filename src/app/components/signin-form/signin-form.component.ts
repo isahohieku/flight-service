@@ -18,7 +18,7 @@ export class SigninFormComponent implements OnInit {
   password: FormControl;
   loginLoading: boolean;
   errorMessage: string;
-  constructor(private auth: AuthService, private util: UtilService, private router: Router) { }
+  constructor(private auth: AuthService, private util: UtilService, private router: Router) {}
 
   ngOnInit() {
     this.createFormControls();
