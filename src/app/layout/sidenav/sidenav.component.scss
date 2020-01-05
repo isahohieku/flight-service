@@ -1,0 +1,14 @@
+ul {
+   padding: 0; 
+}
+
+li {
+    list-style: none;
+    text-align: center;
+    padding: 30px 5px;
+    cursor: pointer;
+}
+
+li > a > img {
+    width: 30px;
+}

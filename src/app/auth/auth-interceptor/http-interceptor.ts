@@ -11,6 +11,7 @@ import { Observable, throwError, of } from 'rxjs';
 import { UtilService } from '../../services/util.service';
 import { CrudService } from 'src/app/services/crud.service';
 import { catchError, filter, take, switchMap } from 'rxjs/operators';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Injectable()
@@ -22,7 +23,7 @@ export class AuthInterceptor implements HttpInterceptor {
     password: 'demo'
   };
 
-  constructor(private util: UtilService) { this.token = this.util.getToken(); }
+  constructor(private util: UtilService, private toastr: ToastrService) { this.token = this.util.getToken(); }
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
     if (this.fakeUrl === request.url) {
@@ -43,6 +44,8 @@ export class AuthInterceptor implements HttpInterceptor {
         //     })
         //   );
         // }
+
+        this.toastr.error('error doing something');
 
         return throwError(error);
 

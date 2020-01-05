@@ -3,6 +3,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { UtilService } from 'src/app/services/util.service';
 import { Router } from '@angular/router';
+import { timer, Subscription } from 'rxjs';
+import { takeUntil, delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-signin-form',
@@ -45,7 +47,8 @@ export class SigninFormComponent implements OnInit {
       this.loginLoading = true;
       this.errorMessage = '';
 
-      this.auth.postMethod(data)
+      const request: Subscription = this.auth.postMethod(data)
+        .pipe(delay(2000))
         .subscribe((res: any) => {
           this.util.setToken(res.token);
           this.util.setUserObject(res.data);
@@ -58,7 +61,7 @@ export class SigninFormComponent implements OnInit {
           this.loginLoading = false;
 
           console.log(e);
-        });
+        }, () => request.unsubscribe());
 
     }
   }

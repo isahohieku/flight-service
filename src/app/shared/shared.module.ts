@@ -11,6 +11,7 @@ import { SigninFormComponent } from '../components/signin-form/signin-form.compo
 import { LoaderComponent } from '../components/loader/loader.component';
 import { AirportCardComponent } from '../components/airport-card/airport-card.component';
 import { GridModalComponent } from '../components/grid-modal/grid-modal.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -26,8 +27,7 @@ import { GridModalComponent } from '../components/grid-modal/grid-modal.componen
     HttpClientModule,
     RouterModule,
     ...materials,
-
-
+    ToastrModule.forRoot(),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
@@ -42,7 +42,6 @@ import { GridModalComponent } from '../components/grid-modal/grid-modal.componen
     HttpClientModule,
     RouterModule,
     ...materials,
-
     // components
     SigninFormComponent,
     LoaderComponent,

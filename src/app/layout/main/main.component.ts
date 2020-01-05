@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudService } from 'src/app/services/crud.service';
-import { take, filter, takeUntil } from 'rxjs/operators';
+import { take, filter, takeUntil, map } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -23,12 +23,13 @@ export class MainComponent implements OnInit {
 
     this.loading = true;
     const request: Subscription = this.crud.getResource(url)
+      .pipe(
+        map(res => res.states),
+        map(res => res.slice(0, 10))
+      )
       .subscribe(res => {
-        this.cities = res.states.slice(0, 10);
-        console.log(this.cities);
+        this.cities = res;
         this.loading = false;
-
-
       }, e => { console.log(e); this.loading = false; }, () => request.unsubscribe());
   }
 
