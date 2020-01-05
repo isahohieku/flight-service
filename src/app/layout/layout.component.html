@@ -1,14 +1,17 @@
-<div >
+<div>
     <mat-drawer-container class="example-container" style="background:#212d3e;">
         <!-- Side drawer -->
-        <mat-drawer mode="side" class="box-shadow" opened style="width: 70px; height: 100vh; background-color: #394c63;">
+        <mat-drawer mode="side" class="box-shadow" opened
+            style="width: 70px; height: 100vh; background-color: #394c63;">
             <app-sidenav></app-sidenav>
         </mat-drawer>
         <!-- Main Outlet -->
         <mat-drawer-content style="height: 100vh;">
-            <app-header style="height: 50px;"></app-header>
-            <app-main></app-main>
-            <app-footer  style="height: 50px;" class="mt-5"></app-footer>
+            <app-header class="sticky-top" style="height: 50px;"></app-header>
+            <main>
+                <router-outlet></router-outlet>
+            </main>
+            <app-footer style="height: 50px;" class="mt-5"></app-footer>
         </mat-drawer-content>
     </mat-drawer-container>
 </div>
